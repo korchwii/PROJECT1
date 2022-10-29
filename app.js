@@ -1,4 +1,3 @@
-//below we hide all the jobs opennings  description by default//
 
 $('#job1').hide();
 $('#job2').hide();
@@ -11,23 +10,21 @@ function showJobOpennings(id){
 
 }
 
-
-// get your IP
 $.getJSON('http://www.geoplugin.net/json.gp', function(data) {
-console.log(JSON.stringify(data, null, 2));
+console.log(JSON.stringify(data,null, 2));
 
-// calling the API (http://api.ipstack.com/) to get the address
+
 const promise = $.ajax({
 
-  url:'http://api.ipstack.com/'+data.geoplugin_request+'?access_key=469ef383c3589ef796cc907a6dcac372',
+  url:'http://api.ipstack.com/'+data.geoplugin_request+'?access_key=887d53672a701c4ec74d6c2fae20c42b',
   dataType:'Jsonp',
 });
 
 promise.then(
-(data) => { //data=return from the IP that gives the address(http://api.ipstack.com/)
+(data) => { 
 
 
-//below we are sending data to DOM 
+
 document.getElementById('city').innerHTML=data.city;
 document.getElementById('state').innerHTML=data.region_name;
 
